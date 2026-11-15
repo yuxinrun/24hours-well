@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', Georgia, serif;
+  --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', -apple-system, system-ui, sans-serif;
+  --paper: #faf7f0;
+  --ink: #2a2724;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #e8c4a3;
+  color: #2a2724;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: #262320;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-caramel-500;
+  }
+
+  .section-title {
+    @apply font-serif text-2xl font-bold leading-tight text-ink sm:text-3xl lg:text-[2.15rem];
+  }
+
+  .card-base {
+    @apply rounded-card border border-paper-300/80 bg-paper-50 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-caramel-200 hover:shadow-lift;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper-50 transition-all duration-200 hover:bg-caramel-500 hover:shadow-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caramel-500;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-6 py-3 text-sm font-semibold text-ink transition-all duration-200 hover:border-ink/50 hover:bg-paper-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-caramel-500;
+  }
+
+  .prose-article {
+    @apply text-[17px] leading-[1.95] text-ink-soft;
+  }
+  .prose-article h2 {
+    @apply mt-12 mb-5 font-serif text-2xl font-bold text-ink sm:text-[1.75rem];
+  }
+  .prose-article h3 {
+    @apply mt-9 mb-3 font-serif text-xl font-semibold text-ink;
+  }
+  .prose-article p {
+    @apply my-5;
+  }
+  .prose-article strong {
+    @apply font-semibold text-ink;
+  }
+  .prose-article a {
+    @apply text-caramel-500 underline decoration-caramel-200 underline-offset-4 hover:decoration-caramel-500;
+  }
+  .prose-article ul {
+    @apply my-5 list-disc space-y-2 pl-6 marker:text-caramel-400;
+  }
+  .prose-article ol {
+    @apply my-5 list-decimal space-y-2 pl-6 marker:text-caramel-500;
+  }
+  .prose-article blockquote {
+    @apply my-8 border-l-2 border-caramel-400 bg-paper-100/70 py-4 pl-6 pr-4 font-serif text-lg italic text-ink;
+  }
+  .prose-article code {
+    @apply rounded bg-paper-200 px-1.5 py-0.5 text-sm text-caramel-600;
+  }
+  .prose-article hr {
+    @apply my-12 border-paper-300;
+  }
+  .prose-article table {
+    @apply my-7 w-full border-collapse overflow-hidden rounded-lg text-sm;
+  }
+  .prose-article th {
+    @apply border border-paper-300 bg-paper-100 px-4 py-2 text-left font-semibold text-ink;
+  }
+  .prose-article td {
+    @apply border border-paper-300 px-4 py-2 align-top;
+  }
+}
+
+/* 细纹理纸质背景（纯 CSS，无外部依赖） */
+.paper-texture {
+  background-image: radial-gradient(circle at 1px 1px, rgba(42, 39, 36, 0.035) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* 隐藏横向溢出，确保移动端不出现横向滚动条 */
+html, body {
+  overflow-x: hidden;
+}
+
+/* 平滑的图表容器 */
+.echarts-box {
+  width: 100%;
+  min-height: 280px;
+}
